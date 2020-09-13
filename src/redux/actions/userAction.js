@@ -4,3 +4,10 @@ export const requestListUser = () => {
     type: types.LIST_USER_REQUEST,
   };
 };
+
+export const requestListUserChatted = (userId) => {
+  return {
+    type: types.LIST_USER_CHATTED_REQUEST,
+    userId,
+  };
+};

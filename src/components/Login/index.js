@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./login.scss";
 import { showRegister } from "./../../redux/actions/uiAction";
@@ -30,9 +30,11 @@ function Login(props) {
     if (loggedIn) {
       history.push("/");
     } else {
-      console.log("login false");
     }
   }, [loggedIn]);
+  function redirectTo() {
+    return <Redirect to="/login" />;
+  }
   return (
     <div className="login container">
       <div className="right">

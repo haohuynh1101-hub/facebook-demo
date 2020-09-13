@@ -11,7 +11,10 @@ import {
 import Profile from "../../components/Helper/Profile";
 import { connect, useSelector } from "react-redux";
 import { showChatBox } from "./../../redux/actions/uiAction";
-import { requestListUser } from "./../../redux/actions//userAction";
+import {
+  requestListUser,
+  requestListUserChatted,
+} from "./../../redux/actions//userAction";
 import User from "../../components/Helper/User";
 GroupRight.propTypes = {};
 
@@ -19,7 +22,7 @@ function GroupRight(props) {
   const { socket } = props;
   const { userInfor } = useSelector((state) => state.login);
 
-  const { onShowChatBox, onGetListUser } = props;
+  const { onShowChatBox, onGetListUser, onGetListUserChatted } = props;
   const users = useSelector((state) => state.user.listUser);
   const [online, setOnline] = useState(false);
   socket.on("user online", () => {

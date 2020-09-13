@@ -42,3 +42,9 @@ export const register = async ({ name, email, password }) => {
   );
   return data;
 };
+export const getListUserChatted = async ({ userId }) => {
+  const { data } = await axiosService.get(
+    `http://192.168.1.9:3003/message/getConversations?id=${userId}&length=10`
+  );
+  return data;
+};

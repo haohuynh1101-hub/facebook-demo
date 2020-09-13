@@ -7,15 +7,17 @@ import {
   faVideo,
   faEllipsisH,
 } from "@fortawesome/free-solid-svg-icons";
-import User from "../Helper/User";
-import Profile from "../Helper/Profile";
+
 import { useSelector } from "react-redux";
+import UserChatted from "../Helper/UserChatted";
 ChatBoxMsg.propTypes = {};
 
 function ChatBoxMsg(props) {
+  const { usersChatted, userInfor } = props;
   const showChatBoxHeader = useSelector(
     (state) => state.loading.showChatBoxHeader
   );
+
   return (
     <div
       style={{ visibility: showChatBoxHeader ? "visible" : "hidden" }}
@@ -34,8 +36,13 @@ function ChatBoxMsg(props) {
         <input type="text" placeholder="Tim kiem tren Messenger" />
       </div>
       <div className="chatBox">
-        <Profile img="https://via.placeholder.com/150" userName="Hao Huynh" />
-        <Profile img="https://via.placeholder.com/150" userName="Hao Huynh" />
+        {usersChatted.map((userChatted) => (
+          <UserChatted
+            userChatted={userChatted}
+            key={userChatted._id}
+            userInfor={userInfor}
+          />
+        ))}
       </div>
       <div className="chatBox-footer">
         <a>Xem tất cả trong Messenger</a>

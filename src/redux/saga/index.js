@@ -19,6 +19,7 @@ export function* watchPost() {
   yield takeEvery(types.LIST_USER_REQUEST, getListUser);
   yield takeEvery(loginTypes.REGISTER_REQUEST, register);
   yield takeEvery(loginTypes.LOGIN_REQUEST, login);
+  yield takeEvery(types.LIST_USER_CHATTED_REQUEST, getListUserChatted);
 }
 export function* getListPost(action) {
   let { listPostID } = action;
@@ -73,7 +74,16 @@ export function* login(action) {
     const data = yield call(api.login, { email, password });
     yield put({ type: loginTypes.LOGIN_SUCCESS, data });
   } catch (error) {
-    console.log(error, "error-action");
     yield put({ type: loginTypes.LOGIN_ERROR, error });
+  }
+}
+
+export function* getListUserChatted(action) {
+  let { userId } = action;
+  try {
+    const data = yield call(api.getListUserChatted, { userId });
+    yield put({ type: types.LIST_USER_CHATTED_SUCCESS, data });
+  } catch (error) {
+    yield put({ type: types.LIST_USER_CHATTED_ERROR, error });
   }
 }

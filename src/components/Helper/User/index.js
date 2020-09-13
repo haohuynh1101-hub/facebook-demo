@@ -7,7 +7,6 @@ User.propTypes = {};
 function User(props) {
   const { name, userId, status } = props;
   const userInfor = useSelector((state) => state.user.listUser);
-  console.log(userInfor, "userinfor");
   return (
     <div className="user">
       <div>
@@ -15,7 +14,7 @@ function User(props) {
         <span className="textName">{name}</span>
       </div>
 
-      <div className="circle-online">{status ? "online" : "offline"}</div>
+      <div className={status ? "circle-online" : "circle-offline"}></div>
     </div>
   );
 }

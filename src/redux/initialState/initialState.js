@@ -6,6 +6,6 @@ export default {
     userInfor: null,
   },
   post: { listPost: [] },
-  user: { listUser: [] },
+  user: { listUser: [], listUserChatted: [] },
   register: {},
 };

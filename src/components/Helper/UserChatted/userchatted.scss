@@ -1,0 +1,26 @@
+.user-chatted {
+  display: flex;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 1rem;
+}
+.chatted-box {
+  align-items: center;
+}
+.user-chatted:hover {
+  background-color: rgba(0, 0, 0, 0.12);
+}
+.msg-chatted {
+  display: flex;
+  align-items: center;
+}
+.message-chatbox {
+  margin: 0 1rem;
+  font-size: 14px;
+  line-height: 1;
+  color: #444;
+}
+.msg-time {
+  font-size: 12px;
+  color: #444;
+}
