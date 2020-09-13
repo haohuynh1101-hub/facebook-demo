@@ -1,0 +1,11 @@
+export const LOGIN_REQUEST = "LOGIN_REQUEST";
+export const LOGOUT = "LOGOUT";
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const LOGIN_ERROR = "LOGIN_ERROR";
+export const LOGIN_CANCELLED = "LOGIN_CANCELLED";
+export const SAVE_TOKEN = "SAVE_TOKEN";
+export const DELETE_TOKEN = "DELETE_TOKEN";
+
+export const REGISTER_REQUEST = "REGISTER_REQUEST";
+export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
+export const REGISTER_ERROR = "REGISTER_ERROR";

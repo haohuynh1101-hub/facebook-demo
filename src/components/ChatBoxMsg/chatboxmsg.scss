@@ -1,0 +1,57 @@
+.chatBox-msg {
+  position: fixed;
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 2rem;
+  width: 360px;
+  margin: 1rem;
+  top: 0;
+  right: 0;
+  transform: translate(-26px, 50px);
+  height: 90vh;
+}
+.text-msg {
+  font-size: 24px;
+  color: #333;
+  font-weight: bold;
+  line-height: 1;
+}
+.chatBox-input {
+  position: relative;
+  margin: 1rem 0;
+}
+.chatBox-input input {
+  border-radius: 50px;
+  border: none;
+  background-color: #f0f2f5;
+  font-size: 14px;
+  line-height: 1;
+  padding: 1rem 3rem;
+  width: 100%;
+  outline: none;
+}
+.icon-search {
+  position: absolute;
+  align-items: flex-end;
+  width: 16px !important;
+  height: 16px;
+  top: 1rem;
+  left: 1rem;
+  color: #606770;
+}
+.chatBox {
+  height: 70vh;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+.chatBox-footer a {
+  font-size: 16px;
+  line-height: 1;
+  font-weight: bold;
+  color: rgba(33, 111, 219, 1);
+  width: 100%;
+}
+.chatBox-footer {
+  text-align: center;
+  justify-content: center;
+  margin: 0.5rem 0;
+}

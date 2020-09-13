@@ -1,0 +1,19 @@
+.users {
+  display: flex;
+}
+.time-post {
+  font-size: 1.3rem;
+  color: #555;
+  font-weight: bold;
+  text-shadow: 0.4px 0.4px 12px rgba(0, 0, 0, 0.12);
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0.5rem 1rem;
+}
+.time {
+  cursor: pointer;
+}
+.time:hover {
+}
+.time-icon {
+  margin: 0 1rem;
+}

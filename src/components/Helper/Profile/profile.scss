@@ -1,0 +1,26 @@
+.profile {
+  border-radius: 6px;
+  padding: 0.5rem;
+  user-select: none;
+  display: flex;
+  align-items: center;
+}
+.profile:hover {
+}
+.image-profile {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  cursor: pointer;
+}
+.image-profile:hover {
+  background-color: rgba(0, 0, 0, 0.12);
+}
+.textName {
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: bold;
+  text-shadow: 0.4px 0.4px 12px rgba(0, 0, 0, 0.12);
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0 1rem;
+}

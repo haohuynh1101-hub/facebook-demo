@@ -1,0 +1,23 @@
+.status {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin: 1rem 0;
+  padding: 0.5rem;
+  width: 100%;
+  justify-content: center;
+}
+.status:hover {
+  background-color: rgba(0, 0, 0, 0.12);
+  border-radius: 5px;
+}
+.icon-support {
+  width: 24px !important;
+  height: 24px;
+  user-select: none;
+}
+.textProfile {
+  color: #65676b;
+  font-size: 14px;
+  user-select: none;
+}

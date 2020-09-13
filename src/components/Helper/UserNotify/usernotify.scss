@@ -1,0 +1,24 @@
+.user-notify {
+  display: flex;
+  cursor: pointer;
+}
+
+.notify {
+  display: inline-block;
+  margin: 0 0.6rem;
+}
+.text-Notify {
+  color: #444;
+  font-weight: 500;
+  line-height: 1;
+  font-size: 16px;
+  margin: 0 0.5rem;
+  user-select: none;
+}
+.username-notify {
+  color: #333;
+  font-weight: bold;
+  line-height: 1;
+  font-size: 16px;
+  user-select: none;
+}

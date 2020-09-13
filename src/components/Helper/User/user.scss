@@ -1,0 +1,12 @@
+.user {
+  margin: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.circle-online {
+  width: 12px;
+  height: 12px;
+  border-radius: 100%;
+  background-color: aquamarine;
+}

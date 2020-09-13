@@ -1,0 +1,99 @@
+.post-box {
+  width: 590px;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0.4px 0.4px 12px rgba(0, 0, 0, 0.12);
+  margin: 2rem 0;
+}
+.post-header {
+  display: flex;
+  justify-content: space-between;
+}
+.post-main {
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: start;
+  margin-top: 4px;
+}
+.post-support {
+  margin: 0.5rem 0;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+.post-support span {
+  color: #555;
+  font-size: 12px;
+  margin: 0 1rem;
+}
+.like {
+  width: 18px !important;
+  height: 18px;
+  padding: 0.5rem;
+  color: #fff;
+  border-radius: 100%;
+  background-color: royalblue;
+}
+.heart {
+  width: 18px !important;
+  height: 18px;
+  padding: 0.5rem;
+  color: #fff;
+  border-radius: 100%;
+  background-color: red;
+}
+.haha {
+  width: 18px !important;
+  height: 18px;
+  color: yellow;
+  border-radius: 100%;
+}
+.comment span {
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+}
+.post-footer {
+  display: flex;
+  justify-content: space-between;
+}
+.btn-like {
+  width: 24px !important;
+  height: 24px;
+  user-select: none;
+}
+.btn-like:active {
+  transition: 0.5s;
+}
+@keyframes Rotate {
+  from {
+    /* transform: rotate(0deg); */
+  }
+  to {
+    transform: rotate(-20deg);
+  }
+}
+.active-btnLike {
+  border-radius: 1rem;
+  width: 24px !important;
+  height: 24px;
+  color: rgb(32, 120, 244);
+  animation-duration: 1s;
+  animation-name: Rotate;
+  animation-iteration-count: 1;
+}
+.text-like {
+  color: #65676b;
+  font-size: 14px;
+  user-select: none;
+  margin: 0 1rem;
+  font-weight: bold;
+}
+.active-textlike {
+  color: rgb(32, 120, 244);
+  font-size: 14px;
+  user-select: none;
+  margin: 0 1rem;
+  font-weight: bold;
+}

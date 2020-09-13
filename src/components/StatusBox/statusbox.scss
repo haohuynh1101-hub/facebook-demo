@@ -1,0 +1,28 @@
+.pre-post {
+  width: 590px;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0.4px 0.4px 12px rgba(0, 0, 0, 0.12);
+}
+.profile-group {
+  display: flex;
+}
+.profile-group input {
+  border: none;
+  background-color: #c6c9cc;
+  padding: 1.5rem;
+  border-radius: 3rem;
+  outline: none;
+  width: 100%;
+  font-size: 16px;
+  cursor: pointer;
+  color: #444;
+}
+.status-group {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+}
+
+/*status-box*/
