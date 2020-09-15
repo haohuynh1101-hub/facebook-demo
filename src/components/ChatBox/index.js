@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import "./chatbox.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -17,19 +17,28 @@ import { hideChatBox } from "./../../redux/actions/uiAction";
 import { useSelector, connect } from "react-redux";
 import Picker from "emoji-picker-react";
 import User from "../Helper/User";
+import { fetchMessages } from "../../redux/actions/messageAction";
 
 ChatBox.propTypes = {};
 
 function ChatBox(props) {
-  const { onHideChatBox } = props;
+  const { onHideChatBox, onFetchMessages } = props;
   const showChatBox = useSelector((state) => state.loading.showChatBox);
   const { user } = useSelector((state) => state.loading);
+  const { userInfor } = useSelector((state) => state.login)
   const [emojiPanel, setEmojiPanel] = useState(false);
   const [content, setContent] = useState("");
   const [chosenEmoji, setChosenEmoji] = useState(null);
   function onEmojiClick(event, emojioject) {
     setChosenEmoji(emojioject);
   }
+  // useEffect(() => {
+  //   console.log("da fetch ")
+  //   onFetchMessages({ user1: user.userId, user2: userInfor._id });
+  // }, [])
+  if (showChatBox == true)
+    onFetchMessages({ user1: user.userId, user2: userInfor._id });
+
   return (
     <div
       style={{ visibility: showChatBox ? "visible" : "hidden" }}
@@ -164,6 +173,10 @@ function mapDispatchtoProps(dispatch, props) {
     onHideChatBox: () => {
       dispatch(hideChatBox());
     },
+    onFetchMessages: ({ user1, user2 }) => {
+      console.log(user1, "ccccccccccc")
+      dispatch(fetchMessages({ user1, user2 }));
+    }
   };
 }
 export default connect(null, mapDispatchtoProps)(ChatBox);

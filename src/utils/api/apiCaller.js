@@ -1,10 +1,15 @@
 import axiosService from "../../common/axiosService";
-const API_ENDPOINT = "http://192.168.1.3:3001";
-const API_ENDPOINT_USER = "http://192.168.1.3:3002";
-const API_ENDPOINT_LISTUSER = "http://192.168.1.3:3003";
+const HOST = "http://localhost"
+const API_ENDPOINT = `${HOST}:3001`;
+const API_ENDPOINT_USER = `${HOST}:3002`;
+const API_ENDPOINT_LISTUSER = `${HOST}:3003`;
 
 const url = "post";
 const user = "user";
+export const getMessages = async (listUser) => {
+  const { data } = await axiosService.get(`${API_ENDPOINT_LISTUSER}/message/getMessages?receiverId=${listUser.user1}&senderId=${listUser.user2}&length=10`)
+  return data;
+}
 export const getListPost = async (listPostID) => {
   const { data } = await axiosService.post(`${API_ENDPOINT}/${url}/5`, {
     listPostId: listPostID.listPostID,
@@ -44,7 +49,7 @@ export const register = async ({ name, email, password }) => {
 };
 export const getListUserChatted = async ({ userId }) => {
   const { data } = await axiosService.get(
-    `http://192.168.1.3:3003/message/getConversations?id=${userId}&length=10`
+    `${API_ENDPOINT_LISTUSER}/message/getConversations?id=${userId}&length=10`
   );
   return data;
 };

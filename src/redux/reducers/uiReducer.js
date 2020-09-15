@@ -6,7 +6,7 @@ const initialState = {
   showNotifyBox: false,
   showRegister: false,
   showStatusBox: false,
-  user: {},
+  user: [],
 };
 const loading = (state = initialState, action) => {
   switch (action.type) {

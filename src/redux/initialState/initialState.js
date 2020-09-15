@@ -8,4 +8,5 @@ export default {
   post: { listPost: [] },
   user: { listUser: [], listUserChatted: [] },
   register: {},
+  message: { listMessages: [] },
 };
