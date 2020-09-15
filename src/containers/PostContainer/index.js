@@ -6,6 +6,7 @@ import StatusBox from "../../components/StatusBox";
 import ListPost from "../../components/ListPost";
 import { requestListPost } from "../../redux/actions/postAction";
 import { connect, useSelector } from "react-redux";
+import BoxStatus from "../../components/BoxStatus";
 PostContainer.propTypes = {};
 
 function PostContainer(props) {
@@ -18,6 +19,7 @@ function PostContainer(props) {
   return (
     <div className="post-container">
       <StatusBox />
+      <BoxStatus />
       <InfinityScroll
         dataLength={posts.length} //This is important field to render the next data
         next={() => onGetListPost(posts)}

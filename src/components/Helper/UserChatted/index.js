@@ -1,10 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./userchatted.scss";
+import { showChatBox } from "../../../redux/actions/uiAction";
+import { connect } from "react-redux";
 UserChatted.propTypes = {};
 
 function UserChatted(props) {
-  const { userChatted, userInfor } = props;
+  const { userChatted, userInfor, onShowChatBox } = props;
   function getUserName() {
     var name = null;
     for (let i = 0; i < userChatted.users.length; i++) {
@@ -29,5 +31,11 @@ function UserChatted(props) {
     </div>
   );
 }
-
-export default UserChatted;
+function mapDispatchtoProps(dispatch) {
+  return {
+    onShowChatBox: (user) => {
+      dispatch(showChatBox(user));
+    },
+  };
+}
+export default connect(null, mapDispatchtoProps)(UserChatted);

@@ -9,22 +9,27 @@ import ChatBoxMsg from "../ChatBoxMsg";
 import Notification from "../Notification";
 import BoxStatus from "../BoxStatus";
 import { connect, useSelector } from "react-redux";
-import { requestListUserChatted } from "../../redux/actions/userAction";
+import {
+  requestListUserChatted,
+  requestListUser,
+} from "../../redux/actions/userAction";
 
 Main.propTypes = {};
 
 function Main(props) {
-  const { onGetListUserChatted } = props;
+  const { onGetListUserChatted, onGetListUser } = props;
   const { userInfor } = useSelector((state) => state.login);
   const usersChatted = useSelector((state) => state.user.listUserChatted);
+  const users = useSelector((state) => state.user.listUser);
   useEffect(() => {
+    onGetListUser();
     onGetListUserChatted(userInfor._id);
   }, []);
   return (
     <div className="main-group">
       <GroupLeft />
       <PostContainer />
-      <GroupRight socket={props.socket} />
+      <GroupRight socket={props.socket} users={users} />
       <ChatBox />
       <ChatBoxMsg
         usersChatted={usersChatted}
@@ -32,7 +37,6 @@ function Main(props) {
         userInfor={userInfor}
       />
       <Notification />
-      <BoxStatus />
     </div>
   );
 }
@@ -40,6 +44,9 @@ function mapDispatchtoProps(dispatch) {
   return {
     onGetListUserChatted: (userId) => {
       dispatch(requestListUserChatted(userId));
+    },
+    onGetListUser: () => {
+      dispatch(requestListUser());
     },
   };
 }

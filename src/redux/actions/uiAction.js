@@ -5,8 +5,9 @@ export const showLoading = () => ({
 export const hideLoading = () => ({
   type: types.HIDE_LOADING,
 });
-export const showChatBox = () => ({
+export const showChatBox = ({ name, userId, status }) => ({
   type: types.SHOW_CHATBOX,
+  payload: { name, userId, status },
 });
 export const hideChatBox = () => ({
   type: types.HIDE_CHATBOX,

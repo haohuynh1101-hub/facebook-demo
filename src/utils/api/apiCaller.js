@@ -1,7 +1,7 @@
 import axiosService from "../../common/axiosService";
-const API_ENDPOINT = "http://192.168.1.9:3001";
-const API_ENDPOINT_USER = "http://192.168.1.9:3002";
-const API_ENDPOINT_LISTUSER = "http://192.168.1.9:3003";
+const API_ENDPOINT = "http://192.168.1.3:3001";
+const API_ENDPOINT_USER = "http://192.168.1.3:3002";
+const API_ENDPOINT_LISTUSER = "http://192.168.1.3:3003";
 
 const url = "post";
 const user = "user";
@@ -44,7 +44,7 @@ export const register = async ({ name, email, password }) => {
 };
 export const getListUserChatted = async ({ userId }) => {
   const { data } = await axiosService.get(
-    `http://192.168.1.9:3003/message/getConversations?id=${userId}&length=10`
+    `http://192.168.1.3:3003/message/getConversations?id=${userId}&length=10`
   );
   return data;
 };

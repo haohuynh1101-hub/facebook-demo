@@ -1,4 +1,4 @@
-import React, { Profiler, useState, useEffect } from "react";
+import React, { Profiler, useState, useEffect, Fragment } from "react";
 import { useHistory } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./groupright.scss";
@@ -11,27 +11,25 @@ import {
 import Profile from "../../components/Helper/Profile";
 import { connect, useSelector } from "react-redux";
 import { showChatBox } from "./../../redux/actions/uiAction";
-import {
-  requestListUser,
-  requestListUserChatted,
-} from "./../../redux/actions//userAction";
+
 import User from "../../components/Helper/User";
+import Users from "../../components/Helper/Users";
 GroupRight.propTypes = {};
 
 function GroupRight(props) {
-  const { socket } = props;
+  const { socket, users } = props;
   const { userInfor } = useSelector((state) => state.login);
 
-  const { onShowChatBox, onGetListUser, onGetListUserChatted } = props;
-  const users = useSelector((state) => state.user.listUser);
+  const { onShowChatBox } = props;
+  // const users = useSelector((state) => state.user.listUser);
   const [online, setOnline] = useState(false);
-  socket.on("user online", () => {
-    setOnline(!online);
-  });
-  useEffect(() => {
-    onGetListUser();
-    return () => {};
-  }, [online]);
+  // socket.on("user online", () => {
+  //   setOnline(!online);
+  // });
+  // useEffect(() => {
+  //   onGetListUser();
+  //   return () => {};
+  // }, [online]);
   return (
     <div className="right-group">
       <div className="line"></div>
@@ -43,11 +41,12 @@ function GroupRight(props) {
           <FontAwesomeIcon className="right-icon" icon={faEllipsisH} />
         </div>
       </div>
-      <div className="user-box" onClick={onShowChatBox}>
+      <div className="user-box">
         {users.map((user) => {
           if (user.userId != userInfor._id)
             return (
               <User
+                onShowChatBox={onShowChatBox}
                 userId={user.userId}
                 name={user.name}
                 status={user.status}
@@ -60,11 +59,8 @@ function GroupRight(props) {
 }
 function mapDispatchtoProps(dispatch, props) {
   return {
-    onShowChatBox: () => {
-      dispatch(showChatBox());
-    },
-    onGetListUser: () => {
-      dispatch(requestListUser());
+    onShowChatBox: (user) => {
+      dispatch(showChatBox(user));
     },
   };
 }

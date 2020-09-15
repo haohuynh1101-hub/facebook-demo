@@ -66,4 +66,5 @@ function mapDispatchtoprops(dispatch, props) {
     },
   };
 }
+
 export default connect(null, mapDispatchtoprops)(StatusBox);

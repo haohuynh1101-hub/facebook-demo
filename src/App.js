@@ -3,7 +3,6 @@ import "./App.scss";
 import HomePage from "./Pages/HomePage";
 import LoginPage from "./Pages/LoginPage";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-
 function App() {
   const homepage = () => <HomePage />;
   const loginpage = ({ history }) => <LoginPage history={history} />;

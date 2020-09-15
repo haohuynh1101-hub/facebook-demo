@@ -16,20 +16,20 @@ function HomePage(props) {
     history.push("/login");
     return <></>;
   } else {
-    var socket = io("http://192.168.1.9:3003");
+    var socket = io("http://192.168.1.3:3003");
     console.log("socket");
     socket.emit("online", { userId: userInfor._id, name: userInfor.name });
-    return (
-      <div>
-        <header>
-          <Header />
-        </header>
-        <main>
-          <Main socket={socket} />
-        </main>
-      </div>
-    );
   }
+  return (
+    <div>
+      <header>
+        <Header />
+      </header>
+      <main>
+        <Main />
+      </main>
+    </div>
+  );
 }
 
 export default HomePage;

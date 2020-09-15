@@ -96,9 +96,9 @@ function Header(props) {
         </div>
       </div>
       <div className="navbar-profile">
-        <div>
+        <span className="nb-profile">
           <Profile img="https://via.placeholder.com/150" userName="Hao" />
-        </div>
+        </span>
         <div className="icon-right">
           <FontAwesomeIcon icon={faPlus} className=" Icon-profile" />
           <span className="tooltiptext">Tạo</span>

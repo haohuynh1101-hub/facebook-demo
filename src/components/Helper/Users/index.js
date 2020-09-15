@@ -5,17 +5,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 Users.propTypes = {};
 
 function Users(props) {
-  const { image, nameUser, time, icon } = props;
+  const { name, userId, status } = props;
   return (
     <div className="users">
-      <img className="image-profile" src={image} />
+      <img className="image-profile" src="https://via.placeholder.com/150" />
       <div>
-        <div className="textName">{nameUser}</div>
-        <div className="time-post">
-          <span className="time">{time}</span>
-          <span className="time-icon">
+        <div className="textName">{name}</div>
+        <div className={status ? "time-post" : ""}>
+          <span className="time">{status ? "Đang hoạt động" : ""}</span>
+          {/* <span className="time-icon">
             <FontAwesomeIcon icon={icon} />
-          </span>
+          </span> */}
         </div>
       </div>
     </div>

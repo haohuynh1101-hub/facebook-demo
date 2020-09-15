@@ -62,7 +62,7 @@ function GroupLeft(props) {
             text="Video"
           />
         </div>
-        <div className="scroll"></div>
+        {/* <div className="scroll"></div> */}
       </div>
     </Fragment>
   );

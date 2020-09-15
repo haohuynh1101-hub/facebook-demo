@@ -12,16 +12,18 @@ import {
   faSmile,
   faThumbsUp,
 } from "@fortawesome/free-solid-svg-icons";
-import User from "../../components/Helper/Users";
+import Users from "../../components/Helper/Users";
 import { hideChatBox } from "./../../redux/actions/uiAction";
 import { useSelector, connect } from "react-redux";
 import Picker from "emoji-picker-react";
+import User from "../Helper/User";
 
 ChatBox.propTypes = {};
 
 function ChatBox(props) {
   const { onHideChatBox } = props;
   const showChatBox = useSelector((state) => state.loading.showChatBox);
+  const { user } = useSelector((state) => state.loading);
   const [emojiPanel, setEmojiPanel] = useState(false);
   const [content, setContent] = useState("");
   const [chosenEmoji, setChosenEmoji] = useState(null);
@@ -34,11 +36,7 @@ function ChatBox(props) {
       className="chat-box"
     >
       <div className="chat-header">
-        <User
-          nameUser="Trinh Trinh Võ"
-          time="Đang hoạt động"
-          image="https://scontent.fsgn2-1.fna.fbcdn.net/v/t1.0-1/s320x320/100096207_562516761129633_4855369749699231744_o.jpg?_nc_cat=107&_nc_sid=7206a8&_nc_ohc=7DCeBbskrw4AX9p-kKO&_nc_oc=AQkd5p-pl6jG4Q1W1IfYSz9ecR-NUmSnj9MFel0WXFvjwJWBuqOlPTNlEEXhOnCJ1zREMi0vzYPQ2yLgUkI08-G6&_nc_ht=scontent.fsgn2-1.fna&tp=7&oh=1f0a42fbce84c31b12777a94ba0e7670&oe=5F7C7863"
-        />
+        <Users name={user.name} userId={user.userId} status={user.status} />
         <div>
           <FontAwesomeIcon className="chat-iconheader" icon={faVideo} />
           <FontAwesomeIcon className="chat-iconheader" icon={faPhoneAlt} />
