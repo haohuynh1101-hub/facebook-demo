@@ -26,9 +26,7 @@ function PostContainer(props) {
         hasMore={true}
         loader={<h4>Loading...</h4>}
       >
-        {posts.map((post) => (
-          <ListPost post={post} key={post._id} />
-        ))}
+        <ListPost />
       </InfinityScroll>
     </div>
   );

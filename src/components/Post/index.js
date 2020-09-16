@@ -8,14 +8,19 @@ import {
   faEllipsisH,
   faThumbsUp,
   faHeart,
-  faSmile,
-  faGrinSquint,
   faLaugh,
   faCommentAlt,
   faShare,
+  faSmile,
+  faCamera,
+  faGift,
+  faIcons,
+  faGifts,
+  faSmileBeam,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import StatusSupport from "./../Helper/StatusSupport";
+import UserComment from "../Helper/UserComment";
 Post.propTypes = {};
 
 function Post(props) {
@@ -40,7 +45,7 @@ function Post(props) {
         <FontAwesomeIcon icon={faEllipsisH} />
       </div>
       <div className="post-main">
-        <span>{post.content}</span>
+        <span>Hello-everyone</span>
       </div>
       <div className="post-support">
         <div>
@@ -54,7 +59,6 @@ function Post(props) {
           <span>12 shares</span>
         </div>
       </div>
-      <div className="line"></div>
       <div className="post-footer">
         <div
           className="status"
@@ -70,6 +74,31 @@ function Post(props) {
         </div>
         <StatusSupport icon={faCommentAlt} text="Comment" />
         <StatusSupport icon={faShare} text="Share" />
+      </div>
+      <div>
+        <UserComment
+          img="https://via.placeholder.com/150"
+          userName="Hao Huynh"
+          comment="What are you doing?........................"
+        />
+        <UserComment
+          img="https://via.placeholder.com/150"
+          userName="Khai Ngo"
+          comment="Iam thinking about you"
+        />
+        <div className="fill-comment">
+          <img
+            src="https://via.placeholder.com/150"
+            className="image-usercomment"
+          />
+          <form>
+            <input placeholder="Viết bình luận ..." />
+            <FontAwesomeIcon className="icon-comment" icon={faSmileBeam} />
+            <FontAwesomeIcon className="icon-comment" icon={faCamera} />
+            <FontAwesomeIcon className="icon-comment" icon={faGifts} />
+            <FontAwesomeIcon className="icon-comment" icon={faIcons} />
+          </form>
+        </div>
       </div>
     </div>
   );

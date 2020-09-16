@@ -9,8 +9,8 @@ GroupLeft.propTypes = {};
 function GroupLeft(props) {
   return (
     <Fragment>
-      <div className="left-group ">
-        <div>
+      <div className="left-group  ">
+        <div className="scroll">
           <Profile userName="Hào Huỳnh" img="https://via.placeholder.com/150" />
           <Stuff
             image="https://static.xx.fbcdn.net/rsrc.php/v3/yx/r/-XF4FQcre_i.png"
@@ -62,7 +62,9 @@ function GroupLeft(props) {
             text="Video"
           />
         </div>
-        {/* <div className="scroll"></div> */}
+        {/* <div className="scroll">
+          
+        </div> */}
       </div>
     </Fragment>
   );

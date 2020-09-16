@@ -58,64 +58,58 @@ function BoxStatus(props) {
   // });
 
   return (
-    <OutsideClickHandler
-      onOutsideClick={() => {
-        onHideStatusBox();
-      }}
+    <div
+      className="overlay"
+      style={{ visibility: showStatusBox ? "visible" : "hidden" }}
     >
-      <div
-        className="overlay"
-        style={{ visibility: showStatusBox ? "visible" : "hidden" }}
-      >
-        <form onSubmit={handleSubmit} className="status-box">
-          <div className="title">
-            <h3 className="title-create">Tạo bào viết</h3>
-            <button onClick={onHideStatusBox} type="button">
-              <FontAwesomeIcon className="icon-time" icon={faTimes} />
-            </button>
-          </div>
-          <div className="line"></div>
-          <Profile img="https://via.placeholder.com/150" userName="Hào Huỳnh" />
-          <div className="emoji-group">
-            <textarea
-              className="fill-status"
-              placeholder="Hào ơi,bạn đang nghĩ gì thế?"
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
-            />
-            <FontAwesomeIcon
-              className="icon-smile"
-              icon={faSmile}
-              onClick={() => setEmojiPanel(!emojiPanel)}
-            />
-            <div
-              className="emojiPanel"
-              style={{ display: emojiPanel ? "block" : "none" }}
-            >
-              <Picker onEmojiClick={onEmojiClick} />
-            </div>
-          </div>
-          <div className="support">
-            <span>Thêm vào bài viết</span>
-            <div className="icon-sp">
-              <StatusSupport icon={faVideo} />
-              <StatusSupport icon={faPhotoVideo} />
-              <StatusSupport icon={faUserTag} />
-              <StatusSupport icon={faSmile} />
-              <StatusSupport icon={faMapMarker} />
-              <StatusSupport icon={faEllipsisH} />
-            </div>
-          </div>
-          <button
-            type="submit"
-            disabled={content === ""}
-            className={content === "" ? "btn-postenable" : "btn-post"}
-          >
-            Đăng
+      <form onSubmit={handleSubmit} className="status-box">
+        <div className="title">
+          <h3 className="title-create">Tạo bào viết</h3>
+          <button onClick={onHideStatusBox} type="button">
+            <FontAwesomeIcon className="icon-time" icon={faTimes} />
           </button>
-        </form>
-      </div>
-    </OutsideClickHandler>
+        </div>
+        <div className="line"></div>
+        <Profile img="https://via.placeholder.com/150" userName="Hào Huỳnh" />
+        <div className="emoji-group">
+          <textarea
+            className="fill-status"
+            placeholder="Hào ơi,bạn đang nghĩ gì thế?"
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+          />
+          <FontAwesomeIcon
+            className="icon-smile"
+            icon={faSmile}
+            onClick={() => setEmojiPanel(!emojiPanel)}
+          />
+          <div
+            className="emojiPanel"
+            style={{ display: emojiPanel ? "block" : "none" }}
+          >
+            <Picker onEmojiClick={onEmojiClick} />
+          </div>
+        </div>
+        <div className="support">
+          <span>Thêm vào bài viết</span>
+          <div className="icon-sp">
+            <StatusSupport icon={faVideo} />
+            <StatusSupport icon={faPhotoVideo} />
+            <StatusSupport icon={faUserTag} />
+            <StatusSupport icon={faSmile} />
+            <StatusSupport icon={faMapMarker} />
+            <StatusSupport icon={faEllipsisH} />
+          </div>
+        </div>
+        <button
+          type="submit"
+          disabled={content === ""}
+          className={content === "" ? "btn-postenable" : "btn-post"}
+        >
+          Đăng
+        </button>
+      </form>
+    </div>
   );
 }
 function mapDispatchtoprops(dispatch, props) {

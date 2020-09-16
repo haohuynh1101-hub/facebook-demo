@@ -57,6 +57,8 @@
 .post-footer {
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
 }
 .btn-like {
   width: 24px !important;
@@ -96,4 +98,36 @@
   user-select: none;
   margin: 0 1rem;
   font-weight: bold;
+}
+
+.fill-comment {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+}
+.fill-comment form {
+  border: none;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background-color: rgba(240, 242, 245, 1);
+  width: 100%;
+  border-radius: 20px;
+  padding: 0.7rem;
+  margin: 0 0.5rem;
+}
+.fill-comment input {
+  border: none;
+  outline: none;
+  background-color: rgba(240, 242, 245, 1);
+  font-size: 14px;
+  width: 70%;
+}
+.icon-comment {
+  position: relative;
+  float: right;
+  width: 16px !important;
+  height: 16px;
+  margin: 0 0.5rem;
+  cursor: pointer;
+  top: 3px;
+  color: #666;
 }

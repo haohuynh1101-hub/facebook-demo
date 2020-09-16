@@ -7,7 +7,6 @@ import ChatBox from "./../../components/ChatBox";
 import "./main.scss";
 import ChatBoxMsg from "../ChatBoxMsg";
 import Notification from "../Notification";
-import BoxStatus from "../BoxStatus";
 import { connect, useSelector } from "react-redux";
 import {
   requestListUserChatted,
@@ -23,7 +22,7 @@ function Main(props) {
   const users = useSelector((state) => state.user.listUser);
   useEffect(() => {
     onGetListUser();
-    onGetListUserChatted(userInfor._id);
+    // onGetListUserChatted(userInfor._id);
   }, []);
   return (
     <div className="main-group">

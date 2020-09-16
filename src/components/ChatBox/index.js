@@ -18,26 +18,27 @@ import { useSelector, connect } from "react-redux";
 import Picker from "emoji-picker-react";
 import User from "../Helper/User";
 import { fetchMessages } from "../../redux/actions/messageAction";
+import Message from "../Message";
 
 ChatBox.propTypes = {};
 
 function ChatBox(props) {
   const { onHideChatBox, onFetchMessages } = props;
   const showChatBox = useSelector((state) => state.loading.showChatBox);
+  const listMessage = useSelector((state) => state.message.listMessages);
   const { user } = useSelector((state) => state.loading);
-  const { userInfor } = useSelector((state) => state.login)
+  const { userInfor } = useSelector((state) => state.login);
   const [emojiPanel, setEmojiPanel] = useState(false);
   const [content, setContent] = useState("");
   const [chosenEmoji, setChosenEmoji] = useState(null);
   function onEmojiClick(event, emojioject) {
     setChosenEmoji(emojioject);
   }
-  // useEffect(() => {
-  //   console.log("da fetch ")
+  useEffect(() => {
+    // onFetchMessages({ user1: user.userId, user2: userInfor._id });
+  }, [showChatBox]);
+  // if (showChatBox == true)
   //   onFetchMessages({ user1: user.userId, user2: userInfor._id });
-  // }, [])
-  if (showChatBox == true)
-    onFetchMessages({ user1: user.userId, user2: userInfor._id });
 
   return (
     <div
@@ -57,89 +58,11 @@ function ChatBox(props) {
         </div>
       </div>
       <div className="line"></div>
-
-      <div className="chat-page">
-        <div className="msg-inbox">
-          <div className="received-chat">
-            <img src="https://via.placeholder.com/150" />
-            <div className="received-chat-msg">
-              <p>Hi!! this is message from your friend</p>
-              <span className="time">11:01PM</span>
-            </div>
-          </div>
-          <div className="sent-chat">
-            <div className="sent-chat-msg">
-              <p>Hi!! this is message from ME</p>
-              <span className="time">11:01PM</span>
-            </div>
-            <img src="https://via.placeholder.com/150" />
-          </div>
-        </div>
-        <div className="msg-inbox">
-          <div className="received-chat">
-            <img src="https://via.placeholder.com/150" />
-            <div className="received-chat-msg">
-              <p>Hi!! this is message from your friend</p>
-              <span className="time">11:01PM</span>
-            </div>
-          </div>
-          <div className="sent-chat">
-            <div className="sent-chat-msg">
-              <p>Hi!! this is message from ME</p>
-              <span className="time">11:01PM</span>
-            </div>
-            <img src="https://via.placeholder.com/150" />
-          </div>
-        </div>
-        <div className="msg-inbox">
-          <div className="received-chat">
-            <img src="https://via.placeholder.com/150" />
-            <div className="received-chat-msg">
-              <p>Hi!! this is message from your friend</p>
-              <span className="time">11:01PM</span>
-            </div>
-          </div>
-          <div className="sent-chat">
-            <div className="sent-chat-msg">
-              <p>Hi!! this is message from ME</p>
-              <span className="time">11:01PM</span>
-            </div>
-            <img src="https://via.placeholder.com/150" />
-          </div>
-        </div>
-        <div className="msg-inbox">
-          <div className="received-chat">
-            <img src="https://via.placeholder.com/150" />
-            <div className="received-chat-msg">
-              <p>Hi!! this is message from your friend</p>
-              <span className="time">11:01PM</span>
-            </div>
-          </div>
-          <div className="sent-chat">
-            <div className="sent-chat-msg">
-              <p>Hi!! this is message from ME</p>
-              <span className="time">11:01PM</span>
-            </div>
-            <img src="https://via.placeholder.com/150" />
-          </div>
-        </div>
-        <div className="msg-inbox">
-          <div className="received-chat">
-            <img src="https://via.placeholder.com/150" />
-            <div className="received-chat-msg">
-              <p>Hi!! this is message from your friend</p>
-              <span className="time">11:01PM</span>
-            </div>
-          </div>
-          <div className="sent-chat">
-            <div className="sent-chat-msg">
-              <p>Hi!! this is message from ME</p>
-              <span className="time">11:01PM</span>
-            </div>
-            <img src="https://via.placeholder.com/150" />
-          </div>
-        </div>
-      </div>
+      <Message
+        listMessage={listMessage}
+        // key={message._id}
+        userInfor={userInfor}
+      />
 
       <div className="chat-footer">
         <div className="footer-icons">
@@ -174,9 +97,8 @@ function mapDispatchtoProps(dispatch, props) {
       dispatch(hideChatBox());
     },
     onFetchMessages: ({ user1, user2 }) => {
-      console.log(user1, "ccccccccccc")
       dispatch(fetchMessages({ user1, user2 }));
-    }
+    },
   };
 }
 export default connect(null, mapDispatchtoProps)(ChatBox);

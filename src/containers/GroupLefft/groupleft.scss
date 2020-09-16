@@ -24,41 +24,37 @@
   background: rgba(201, 204, 209, 1);
   border-radius: 10px;
   box-shadow: 0.4px 0.4px 12px rgba(0, 0, 0, 0.12);
-  visibility: visible;
+  visibility: hidden;
 }
+
+/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
+  background: #b30000;
 }
 .left-group:hover {
-  ::-webkit-scrollbar-thumb {
+  .scroll::-webkit-scrollbar-thumb {
     visibility: visible;
   }
 }
-/* Handle on hover */
-// ::-webkit-scrollbar-thumb:hover {
-//   background: #b30000;
-// }
-// .left-group:hover {
-//   .scroll {
-//     visibility: visible;
-//   }
-// }
-// .scroll {
-//   height: 622px;
-//   overflow-y: scroll;
-//   visibility: hidden;
-//   position: absolute;
-//   right: 0;
-// }
-// .scroll::-webkit-scrollbar {
-//   width: 1rem;
-//   border-radius: 4px;
-// }
+.scroll {
+  height: 622px;
+  overflow-y: scroll;
+  visibility: visible;
+  right: 0;
+}
+.scroll::-webkit-scrollbar {
+  width: 1rem;
+  border-radius: 4px;
+}
 
-// .scroll::-webkit-scrollbar-track {
-//   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-// }
+.scroll::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  visibility: hidden;
+}
 
-// .scroll::-webkit-scrollbar-thumb {
-//   background-color: darkgrey;
-//   outline: 1px solid slategrey;
-// }
+.scroll::-webkit-scrollbar-thumb {
+  background: rgba(201, 204, 209, 1);
+  border-radius: 10px;
+  box-shadow: 0.4px 0.4px 12px rgba(0, 0, 0, 0.12);
+  visibility: hidden;
+}

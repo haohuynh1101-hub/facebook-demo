@@ -6,7 +6,7 @@ const initialState = {
   showNotifyBox: false,
   showRegister: false,
   showStatusBox: false,
-  user: [],
+  user: {},
 };
 const loading = (state = initialState, action) => {
   switch (action.type) {
@@ -21,7 +21,7 @@ const loading = (state = initialState, action) => {
       return { ...state, showChatBox: true, user: data };
     }
     case types.HIDE_CHATBOX: {
-      return { ...state, showChatBox: false };
+      return { ...state, showChatBox: false, user: {} };
     }
     case types.SHOW_CHATBOX_HEADER: {
       return { ...state, showChatBoxHeader: true };

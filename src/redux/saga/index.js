@@ -20,22 +20,20 @@ export function* watchPost() {
   yield takeEvery(loginTypes.REGISTER_REQUEST, register);
   yield takeEvery(loginTypes.LOGIN_REQUEST, login);
   yield takeEvery(types.LIST_USER_CHATTED_REQUEST, getListUserChatted);
-  yield takeEvery(types.FETCH_MESSAGES, getListMessages)
+  yield takeEvery(types.FETCH_MESSAGES, getListMessages);
 }
 export function* getListMessages(action) {
   // console.log("fetch message ne")
   let { listUserId } = action;
   try {
-    console.log("fetch message ne")
+    console.log("fetch message ne");
 
-    const data = yield call(api.getMessages, listUserId)
-    console.log(data, "datadddd")
+    const data = yield call(api.getMessages, listUserId);
 
-    yield put({ type: types.FETCH_MESSAGES_SUCCESS, listMessages: data })
+    yield put({ type: types.FETCH_MESSAGES_SUCCESS, listMessages: data });
   } catch (error) {
-    console.log(error, "error")
-    yield put({ type: types.FETCH_MESSAGES_ERROR })
-
+    console.log(error, "error");
+    yield put({ type: types.FETCH_MESSAGES_ERROR });
   }
 }
 export function* getListPost(action) {
