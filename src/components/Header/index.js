@@ -37,6 +37,7 @@ function Header(props) {
   const showChatBoxHeader = useSelector(
     (state) => state.loading.showChatBoxHeader
   );
+  const [openAccount, setOpenAccount] = useState(false);
   const showNotifyBox = useSelector((state) => state.loading.showNotifyBox);
   function onOpenChatBoxHeader() {
     if (showChatBoxHeader) {
@@ -52,6 +53,13 @@ function Header(props) {
     } else {
       onShowNotifyBox();
       onHideChatBoxHeader();
+    }
+  }
+  function onOpenAccount() {
+    if (openAccount) {
+      setOpenAccount(false);
+    } else {
+      setOpenAccount(true);
     }
   }
   return (
@@ -101,7 +109,7 @@ function Header(props) {
         </span>
         <div className="icon-right">
           <FontAwesomeIcon icon={faPlus} className=" Icon-profile" />
-          <span className="tooltiptext">Tạo</span>
+          {/* <span className="tooltiptext">Tạo</span> */}
         </div>
         <div className="icon-right" onClick={onOpenChatBoxHeader}>
           <span className="alert-number">1</span>
@@ -112,7 +120,7 @@ function Header(props) {
               showChatBoxHeader ? "Icon-activeprofile" : "Icon-profile"
             }
           />
-          <span className="tooltiptext">Messenger</span>
+          {/* <span className="tooltiptext">Messenger</span> */}
         </div>
         <div className="icon-right" onClick={onOpenNotifyBoxHeader}>
           <span className="alert-number">1</span>
@@ -120,11 +128,25 @@ function Header(props) {
             icon={faBell}
             className={showNotifyBox ? "Icon-activeprofile" : "Icon-profile"}
           />
-          <span className="tooltiptext">Thông báo</span>
+          {/* <span className="tooltiptext">Thông báo</span> */}
         </div>
-        <div className="icon-right">
+        <div
+          className="icon-right"
+          onClick={() => {
+            onOpenAccount();
+          }}
+        >
           <FontAwesomeIcon icon={faCaretDown} className="Icon-profile" />
-          <span className="tooltiptext">Tài khoản</span>
+          {/* <span className="tooltiptext">Tài khoản</span> */}
+        </div>
+        <div
+          className="account"
+          style={{ visibility: openAccount ? "visible" : "hidden" }}
+        >
+          <a>Cập nhật tài khoản</a>
+          <div className="signout">
+            <a>Đăng xuất</a>
+          </div>
         </div>
       </div>
     </div>

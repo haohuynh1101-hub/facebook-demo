@@ -12,6 +12,7 @@ import {
   requestListUserChatted,
   requestListUser,
 } from "../../redux/actions/userAction";
+import LoadingIcon from "../LoadingIcon";
 
 Main.propTypes = {};
 
@@ -36,6 +37,7 @@ function Main(props) {
         userInfor={userInfor}
       />
       <Notification />
+      <LoadingIcon />
     </div>
   );
 }

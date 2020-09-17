@@ -15,6 +15,7 @@
   color: #0c88ef;
   font-size: 4.5rem;
   height: auto;
+  cursor: pointer;
 }
 .search {
   position: absolute;
@@ -32,6 +33,7 @@
 .search-input {
   max-height: 50px;
   position: relative;
+  margin: 0 1rem;
 }
 .search-group input {
   border-radius: 50px;
@@ -39,7 +41,7 @@
   font-size: 16px;
   border: none;
   border-color: rgb(195, 195, 195);
-  background-color: rgb(195, 195, 195);
+  background-color: rgba(240, 242, 245, 1);
   padding-left: 3rem;
   height: 46px;
   width: auto;
@@ -159,10 +161,9 @@
   left: 0;
   margin-left: -0.5rem;
   /* Position the tooltip text - see examples below! */
-  position: absolute;
+  position: static;
   user-select: none;
-  z-index: 1;
-  transition-delay: 0.5s;
+  z-index: 0;
 }
 .alert-number {
   position: absolute;
@@ -177,5 +178,35 @@
   text-align: center;
   user-select: none;
 }
-.nb-profile {
+.account {
+  background-color: #fff;
+  width: 10vw;
+  height: 5vw;
+  border-radius: 10px;
+  position: fixed;
+  right: 0;
+  visibility: hidden;
+  z-index: 1;
+  top: 8%;
+}
+.account a {
+  font-size: 14px;
+  color: #333;
+  font-weight: bold;
+  text-decoration: none;
+  list-style: none;
+  line-height: 1;
+  padding: 1rem 0 1rem 0.5rem;
+  cursor: pointer;
+}
+.account a:hover {
+  color: rgb(31, 240, 125);
+}
+.signout {
+  margin: 1rem 0;
+  padding: 0 1rem;
+  border-radius: 10px;
+}
+.signout:hover {
+  background-color: rgba(240, 242, 245, 1);
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import "./App.scss";
 import HomePage from "./Pages/HomePage";
 import LoginPage from "./Pages/LoginPage";

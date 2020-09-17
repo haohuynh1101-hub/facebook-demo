@@ -94,7 +94,10 @@ function BoxStatus(props) {
           <span>Thêm vào bài viết</span>
           <div className="icon-sp">
             <StatusSupport icon={faVideo} />
-            <StatusSupport icon={faPhotoVideo} />
+            <div className="upload-btn-wrapper">
+              <StatusSupport icon={faPhotoVideo} />
+              <input type="file" />
+            </div>
             <StatusSupport icon={faUserTag} />
             <StatusSupport icon={faSmile} />
             <StatusSupport icon={faMapMarker} />

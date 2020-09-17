@@ -34,8 +34,8 @@ function StatusBox(props) {
           <Profile img="https://via.placeholder.com/150" />
           <input
             value={content}
-            onClick={onOpenStatusBox}
             placeholder="Hào ơi, bạn đang nghĩ gì thế?"
+            onClick={onOpenStatusBox}
           />
         </div>
         <div className="status-group">

@@ -45,7 +45,7 @@ function Login(props) {
         </h3>
       </div>
       <div className="form-login" onSubmit={handleSubmitLogin}>
-        <form>
+        <form autoComplete="off">
           <div className="input-user">
             <input
               type="email"
@@ -54,6 +54,7 @@ function Login(props) {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              autoComplete="off"
             />
           </div>
           <div className="input-password">
@@ -65,6 +66,7 @@ function Login(props) {
               onChange={(e) => setPassword(e.target.value)}
               minLength="6"
               required
+              autoComplete="off"
             />
           </div>
           <div className="btn-login">

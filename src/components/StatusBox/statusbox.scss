@@ -11,7 +11,7 @@
 }
 .profile-group input {
   border: none;
-  background-color: #c6c9cc;
+  background-color: rgba(240, 242, 245, 1);
   padding: 1.5rem;
   border-radius: 3rem;
   outline: none;
@@ -20,6 +20,10 @@
   cursor: pointer;
   color: #444;
   height: 6vh;
+}
+.profile-group input:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  opacity: 1;
 }
 .status-group {
   display: flex;

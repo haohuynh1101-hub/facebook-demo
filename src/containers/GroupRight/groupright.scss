@@ -4,10 +4,17 @@
   margin: 0 1rem;
   overflow-y: auto;
   overflow-x: hidden;
-
   height: 100vh;
   position: sticky;
   top: 0;
+
+  // flex-basis: 360px;
+  // margin: 2rem 2rem 0 1rem;
+  // height: 100vh;
+  // position: sticky;
+  // top: 10%;
+  // overflow: auto;
+  // overflow-x: hidden;
 }
 .right-header {
   display: flex;

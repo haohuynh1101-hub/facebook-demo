@@ -1,7 +1,12 @@
 import * as api from "../../utils/api/apiCaller";
 import * as types from "../../types/Actiontypes";
 import * as loginTypes from "../../types/logintypes";
-import { showLoading, hideLoading, hideRegister } from "./../actions/uiAction";
+import {
+  showLoading,
+  hideLoading,
+  hideRegister,
+  hideStatusBox,
+} from "./../actions/uiAction";
 import {
   call,
   cancel,
@@ -58,6 +63,7 @@ export function* addPost(action) {
   }
   yield delay(1000);
   yield put(hideLoading());
+  yield put(hideStatusBox());
 }
 
 export function* getListUser(action) {
@@ -71,15 +77,15 @@ export function* getListUser(action) {
 
 export function* register(action) {
   let { name, email, password } = action;
+  yield put(showLoading());
   try {
-    yield put(showLoading());
     const data = yield call(api.register, { name, email, password });
     yield put({ type: loginTypes.REGISTER_SUCCESS, data });
   } catch (error) {
     yield put({ type: loginTypes.REGISTER_ERROR, error });
   }
-  yield put(hideRegister());
   yield delay(1000);
+  yield put(hideRegister());
   yield put(hideLoading());
 }
 
