@@ -1,5 +1,5 @@
 import axiosService from "../../common/axiosService";
-const HOST = "http://192.168.1.3";
+const HOST = "http://192.168.1.5";
 const API_ENDPOINT = `${HOST}:3001`;
 const API_ENDPOINT_USER = `${HOST}:3002`;
 const API_ENDPOINT_LISTUSER = `${HOST}:3003`;

@@ -12,14 +12,14 @@ HomePage.propTypes = {};
 function HomePage(props) {
   var history = useHistory();
   const { userInfor } = useSelector((state) => state.login);
-  // if (userInfor == null) {
-  //   history.push("/login");
-  //   return <></>;
-  // } else {
-  //   var socket = io("http://192.168.1.3:3003");
-  //   console.log("socket");
-  //   socket.emit("online", { userId: userInfor._id, name: userInfor.name });
-  // }
+  if (userInfor == null) {
+    history.push("/login");
+    return <></>;
+  } else {
+    var socket = io("http://192.168.1.3:3003");
+    console.log("socket");
+    socket.emit("online", { userId: userInfor._id, name: userInfor.name });
+  }
   return (
     <div>
       <header>
