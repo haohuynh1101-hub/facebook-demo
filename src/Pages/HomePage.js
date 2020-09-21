@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 import Header from "../components/Header";
 import Main from "../components/Main";
 import io from "socket.io-client";
+import { MESSAGE_HOST } from 'config'
 
 HomePage.propTypes = {};
 
@@ -16,7 +17,7 @@ function HomePage(props) {
     history.push("/login");
     return <></>;
   } else {
-    var socket = io("http://192.168.1.3:3003");
+    var socket = io(MESSAGE_HOST);
     console.log("socket");
     socket.emit("online", { userId: userInfor._id, name: userInfor.name });
   }

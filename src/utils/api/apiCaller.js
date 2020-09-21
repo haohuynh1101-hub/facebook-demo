@@ -1,36 +1,34 @@
 import axiosService from "../../common/axiosService";
-const HOST = "http://192.168.1.5";
-const API_ENDPOINT = `${HOST}:3001`;
-const API_ENDPOINT_USER = `${HOST}:3002`;
-const API_ENDPOINT_LISTUSER = `${HOST}:3003`;
+import { POST_HOST, MESSAGE_HOST, USER_HOST } from 'config'
 
 const url = "post";
 const user = "user";
 export const getMessages = async (listUser) => {
   const { data } = await axiosService.get(
-    `${API_ENDPOINT_LISTUSER}/message/getMessages?receiverId=${listUser.user1}&senderId=${listUser.user2}&length=10`
+    `${MESSAGE_HOST}/message/getMessages?receiverId=${listUser.user1}&senderId=${listUser.user2}&length=10`
   );
   return data;
 };
 export const getListPost = async (listPostID) => {
-  const { data } = await axiosService.post(`${API_ENDPOINT}/${url}/5`, {
+  const { data } = await axiosService.post(`${POST_HOST}/${url}/5`, {
     listPostId: listPostID.listPostID,
   });
   return data;
 };
 export const addPost = async (post) => {
-  const data = await axiosService.post(`${API_ENDPOINT}/${url}`, post);
+  const data = await axiosService.post(`${POST_HOST}/${url}`, post);
   return data;
 };
 export const getListUser = async () => {
   const { data } = await axiosService.get(
-    `${API_ENDPOINT_LISTUSER}/getListStatusUser`
+    `${MESSAGE_HOST}/getListStatusUser`
   );
   return data;
 };
 export const login = async ({ email, password }) => {
+  console.log(`${USER_HOST}/${user}/signin`)
   const { data } = await axiosService.post(
-    `${API_ENDPOINT_USER}/${user}/signin`,
+    `${USER_HOST}/${user}/signin`,
     {
       email,
       password,
@@ -40,7 +38,7 @@ export const login = async ({ email, password }) => {
 };
 export const register = async ({ name, email, password }) => {
   const { data } = await axiosService.post(
-    `${API_ENDPOINT_USER}/${user}/register`,
+    `${USER_HOST}/${user}/register`,
     {
       name,
       email,
@@ -51,7 +49,7 @@ export const register = async ({ name, email, password }) => {
 };
 export const getListUserChatted = async ({ userId }) => {
   const { data } = await axiosService.get(
-    `${API_ENDPOINT_LISTUSER}/message/getConversations?id=${userId}&length=10`
+    `${MESSAGE_HOST}/message/getConversations?id=${userId}&length=10`
   );
   return data;
 };
